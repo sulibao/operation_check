@@ -23,9 +23,10 @@ pip >= 18.1 版本
 ## 1.运行演示
 
 ```python
-'''将文件下载/复制/拉取倒服务器上，执行python3 Linux_check.py即可'''
+'''将文件下载/复制/拉取倒服务器上，使用pip下载库，执行python3 Linux_check.py即可'''
+pip3 install psutil && pip3 install distro
+
 python3 Linux_check.py 
-检查信息成功保存至 ./system_info.txt 文件
 ```
 
 ## 2.运行结果实例
@@ -33,95 +34,165 @@ python3 Linux_check.py
 ```bash
 root@sulibao-None:/home/sulibao/python# python3 Linux_check.py 
 
-检查信息成功保存至 ./system_info.txt 文件
-root@sulibao-None:/home/sulibao/python# cat system_info.txt 
-============================================获取操作系统的参数信息=============================================
+(myenv) root@sulibao-None:/home/sulibao/python/080601# cat system_monitor.log 
+2025-08-06 12:06:47,914 - INFO - ==================================================
+2025-08-06 12:06:47,914 - INFO - 系统信息报告 - 2025-08-06 12:06:47
+2025-08-06 12:06:47,914 - INFO - ==================================================
+2025-08-06 12:06:47,914 - INFO - 1. 操作系统信息
+2025-08-06 12:06:47,934 - INFO - 成功获取到OS信息
+2025-08-06 12:06:47,934 - INFO - 2. 登录用户信息
+2025-08-06 12:06:47,934 - INFO - 成功获取登录用户信息
+2025-08-06 12:06:47,934 - INFO - 3. 系统运行时间与平均负载
+2025-08-06 12:06:47,934 - INFO - 成功获取系统运行时间
+2025-08-06 12:06:47,935 - INFO - 成功获取系统平均负载
+2025-08-06 12:06:47,935 - INFO - 4. 内存和交换空间信息
+2025-08-06 12:06:47,935 - INFO - 成功获取内存和交换空间信息
+2025-08-06 12:06:47,935 - INFO - 5. 内存使用率最高的5个进程
+2025-08-06 12:06:47,993 - INFO - 成功获取内存使用率最高的5个进程
+2025-08-06 12:06:47,993 - INFO - 6. CPU使用情况
+2025-08-06 12:06:48,995 - INFO - 成功获取CPU信息
+2025-08-06 12:06:48,995 - INFO - 7. CPU使用率最高的5个进程
+2025-08-06 12:07:22,900 - INFO - 成功获取CPU使用率最高的5个进程
+2025-08-06 12:07:22,900 - INFO - 8. 磁盘使用情况
+2025-08-06 12:07:22,901 - INFO - 成功获取磁盘使用情况
+2025-08-06 12:07:22,901 - INFO - 9. Inode使用情况
+2025-08-06 12:07:22,908 - INFO - 成功获取Inode使用情况
 
-=============================================获取操作系统的OS==============================================
+==================================================
+=============================================================================================================================
+系统OS信息如下:
 
-主机名: sulibao-None, OS类型和版本: Ubuntu 24.04.2 LTS, 系统内核版本: 6.8.0-71-generic。
+操作系统: Linux
+主机名: sulibao-None
+内核版本: 6.8.0-71-generic
+发行版名称: Ubuntu
+发行版版本: 24.04
+机器类型: x86_64
 
-===========================================获取操作系统的运行相关信息============================================
+=============================================================================================================================
+当前系统登录用户如下:
 
-登录的用户列表如下:
-sulibao  seat0        2025-08-05 09:02 (login screen)
-sulibao  tty2         2025-08-05 09:02 (tty2)
-sulibao  pts/2        2025-08-05 11:33
-sulibao  pts/3        2025-08-05 11:36 (192.168.2.2)
-sulibao  pts/4        2025-08-05 11:48 (192.168.2.2)
- 
-系统已经运行了0天 2小时 46分钟, 系统平均负载为(1m/5m/15m): 0.00, 0.03, 0.12
+用户 1:
+  用户名: sulibao
+  终端: pts/0
+  主机: 192.168.2.2
+  登录时间: 2025-08-06 12:04:16
+用户 2:
+  用户名: sulibao
+  终端: pts/1
+  主机: 192.168.2.2
+  登录时间: 2025-08-06 12:04:22
 
-============================================内存和交换空间的使用情况============================================
+=============================================================================================================================
+系统运行相关信息如下:
 
-内存总量 7.7G, 剩余可使用量 4.10G, 剩余可使用内存比例 53.25%;
-交换空间总量为 4.0G, 剩余可使用交换空间比例 100.0%
+启动时间: 2025-08-06 09:02:03
+运行时间: 0天 3小时 4分钟 44秒
 
-系统中内存使用量前五名(从高至低):
-USER       PID    %MEM   COMMAND
-sulibao    4977   17.5   /home/sulibao/.vscode-server/cli/servers/Stable-488a1f239235055e34e673291fb8d8c810886f81/server/node /home/sulibao/.vscode-server/extensions/ms-python.vscode-pylance-2025.7.1/dist/server.bundle.js --cancellationReceive=file:561ef9c9fed294e242a32bb1fe3d2efd23b18c9214 --node-ipc --clientProcessId=4699
-sulibao    4699   9.3    /home/sulibao/.vscode-server/cli/servers/Stable-488a1f239235055e34e673291fb8d8c810886f81/server/node --dns-result-order=ipv4first /home/sulibao/.vscode-server/cli/servers/Stable-488a1f239235055e34e673291fb8d8c810886f81/server/out/bootstrap-fork --type=extensionHost --transformURIs --useHostProxy=false
-sulibao    3449   3.5    /usr/bin/gnome-shell
-1001       2556   1.7    /opt/bitnami/minio/bin/minio server --certs-dir /certs --console-address :9001 --address :9000 /bitnami/minio/data
-sulibao    3669   1.4    /usr/libexec/evolution-data-server/evolution-alarm-notify
+系统平均负载:
+  1分钟负载: 0.12 (2.9%)
+  5分钟负载: 0.07 (1.7%)
+  15分钟负载: 0.02 (0.4%)
 
-=============================================CPU信息和使用情况=============================================
+=============================================================================================================================
+内存和交换空间使用情况如下:
 
-系统CPU的型号为:Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz, 系统CPU核数为:4, CPU使用率为:0%
+物理内存:
+  总计: 7.71 GB
+  可用: 6.58 GB
+  已使用: 862.20 MB (14.6%)
+  空闲: 5.27 GB
 
-系统中CPU使用量前五名(从高至低):
-USER       PID    %CPU   COMMAND
-root       16076  200    ps aux --sort=-%cpu --no-headers
-sulibao    4977   17.6   /home/sulibao/.vscode-server/cli/servers/Stable-488a1f239235055e34e673291fb8d8c810886f81/server/node /home/sulibao/.vscode-server/extensions/ms-python.vscode-pylance-2025.7.1/dist/server.bundle.js --cancellationReceive=file:561ef9c9fed294e242a32bb1fe3d2efd23b18c9214 --node-ipc --clientProcessId=4699
-sulibao    4699   2.7    /home/sulibao/.vscode-server/cli/servers/Stable-488a1f239235055e34e673291fb8d8c810886f81/server/node --dns-result-order=ipv4first /home/sulibao/.vscode-server/cli/servers/Stable-488a1f239235055e34e673291fb8d8c810886f81/server/out/bootstrap-fork --type=extensionHost --transformURIs --useHostProxy=false
-root       16068  1.8    python3 Linux_check.py
-sulibao    4534   1.0    sshd: sulibao@notty
+交换空间:
+  总计: 4.00 GB
+  已使用: 0 B (0.0%)
+  空闲: 4.00 GB
+  从磁盘换入: 0 B
+  换出到磁盘: 0 B
 
-===============================================磁盘使用情况===============================================
+=============================================================================================================================
+内存使用率最高的5个进程信息如下:
 
-Filesystem           Size     Used     Avail    Use%   Mounted on
+PID      username     mem_used_percent   mem_used        process_name   
+-----------------------------------------------------------------------------------------------------------------------------
+1998     gdm          2.61               205.91 MB       gnome-shell    
+2469     1001         1.72               135.88 MB       minio          
+1778     root         1.28               101.03 MB       journalctl     
+2876     gdm          1.03               81.62 MB        mutter-x11-frames
+2307     gdm          1.03               81.25 MB        Xwayland       
 
-----------------------------------------------------------------------------------------------------
+=============================================================================================================================
+CPU使用情况如下:
 
-tmpfs                790M     2.2M     788M     1%     /run
+物理核心数: 4
+逻辑核心数: 4
+总CPU使用率: 0.0%
 
-/dev/sda2            30G      18G      11G      63%    /
+各核心CPU使用率:
+  核心 1: 0.0%
+  核心 2: 0.0%
+  核心 3: 6.4%
+  核心 4: 2.7%
 
-tmpfs                3.9G     0        3.9G     0%     /dev/shm
+CPU频率:
+  当前: 2496.01 MHz
+  最小: 0.00 MHz
+  最大: 0.00 MHz
 
-tmpfs                5.0M     8.0K     5.0M     1%     /run/lock
+=============================================================================================================================
+CPU使用率最高的5个进程信息如下:
 
-overlay              30G      18G      11G      63%    /data/docker_data/overlay2/1166005196fc6867b5bf4c8006b2f0bed44b03eaf6cfc373f6f6ea4defa10b41/merged
+PID      username        cpu_used(%)     process_name        
+-----------------------------------------------------------------------------------------------------------------------------
+14205    root            14.60           python3             
+797      root            0.40            vmtoolsd            
+1762     root            0.20            containerd          
+724      systemd-oom     0.10            systemd-oomd        
+2420     root            0.10            containerd-shim-ru  
 
-overlay              30G      18G      11G      63%    /data/docker_data/overlay2/d16527bcfad68e85c83dc2580c5fb8c2a1cfb2767f3787e07aabadb7a8ddea27/merged
+=============================================================================================================================
+磁盘使用情况如下:
 
-tmpfs                790M     124K     790M     1%     /run/user/1000
+Device               Filesystem      Mounted on                Size            Used            Used_percent(%)      Free           
+-----------------------------------------------------------------------------------------------------------------------------
+/dev/sda2            ext4            /                         29.36 GB        17.41 GB        62.5                 10.43 GB       
+/dev/loop1           squashfs        /snap/bare/5              128.00 KB       128.00 KB       100.0                0 B            
+/dev/loop0           squashfs        /snap/core22/1981         74.00 MB        74.00 MB        100.0                0 B            
+/dev/loop2           squashfs        /snap/core22/2045         74.00 MB        74.00 MB        100.0                0 B            
+/dev/loop3           squashfs        /snap/firefox/6565        245.25 MB       245.25 MB       100.0                0 B            
+/dev/loop4           squashfs        /snap/firefox/4848        271.25 MB       271.25 MB       100.0                0 B            
+/dev/loop6           squashfs        /snap/firmware-upd        11.25 MB        11.25 MB        100.0                0 B            
+/dev/loop5           squashfs        /snap/firmware-upd        10.75 MB        10.75 MB        100.0                0 B            
+/dev/loop7           squashfs        /snap/gnome-42-220        497.00 MB       497.00 MB       100.0                0 B            
+/dev/loop9           squashfs        /snap/snap-store/1        10.62 MB        10.62 MB        100.0                0 B            
+/dev/loop11          squashfs        /snap/snapd/24792         49.38 MB        49.38 MB        100.0                0 B            
+/dev/loop12          squashfs        /snap/snapd-deskto        640.00 KB       640.00 KB       100.0                0 B            
+/dev/loop8           squashfs        /snap/gtk-common-t        91.75 MB        91.75 MB        100.0                0 B            
+/dev/loop13          squashfs        /snap/snapd-deskto        640.00 KB       640.00 KB       100.0                0 B            
+/dev/loop10          squashfs        /snap/snap-store/1        10.88 MB        10.88 MB        100.0                0 B            
+/dev/sda2            ext4            /var/snap/firefox/        29.36 GB        17.41 GB        62.5                 10.43 GB       
+/dev/loop14          squashfs        /snap/snapd/24505         51.00 MB        51.00 MB        100.0                0 B            
+/dev/loop15          squashfs        /snap/gnome-42-220        516.12 MB       516.12 MB       100.0                0 B            
+/dev/loop17          squashfs        /snap/thunderbird/        210.38 MB       210.38 MB       100.0                0 B            
+/dev/loop16          squashfs        /snap/thunderbird/        210.00 MB       210.00 MB       100.0                0 B            
 
-/dev/sr0             4.9G     4.9G     0        100%   /media/sulibao/Ubuntu
+=============================================================================================================================
+Inode使用情况如下:
 
-=============================================inode使用情况==============================================
+Filesystem      Total_inodes    Used_inodes     Free_inodes     used_percent(%)      Mounted on          
+-----------------------------------------------------------------------------------------------------------------------------
+tmpfs           1010446         1317            1009129         1%                   /run                
+/dev/sda2       1966080         292690          1673390         15%                  /                   
+tmpfs           1010446         1               1010445         1%                   /dev/shm            
+tmpfs           1010446         4               1010442         1%                   /run/lock           
+tmpfs           202089          101             201988          1%                   /run/user/123       
+overlay         1966080         292690          1673390         15%                  /data/docker_data/  
+overlay         1966080         292690          1673390         15%                  /data/docker_data/  
+tmpfs           202089          93              201996          1%                   /run/user/1000      
 
-Filesystem           Inodes   Used     Free     Use%   Mounted on
-
-----------------------------------------------------------------------------------------------------
-
-tmpfs                987K     1.4K     986K     1%     /run
-
-/dev/sda2            1.9M     289K     1.6M     16%    /
-
-tmpfs                987K     1        987K     1%     /dev/shm
-
-tmpfs                987K     5        987K     1%     /run/lock
-
-overlay              1.9M     289K     1.6M     16%    /data/docker_data/overlay2/1166005196fc6867b5bf4c8006b2f0bed44b03eaf6cfc373f6f6ea4defa10b41/merged
-
-overlay              1.9M     289K     1.6M     16%    /data/docker_data/overlay2/d16527bcfad68e85c83dc2580c5fb8c2a1cfb2767f3787e07aabadb7a8ddea27/merged
-
-tmpfs                198K     165      198K     1%     /run/user/1000
-
-/dev/sr0             0        0        0        -      /media/sulibao/Ubuntu
-
-====================================================================================================root@sulibao-None:/home/sulibao/python# 
+=============================================================================================================================
+系统信息报告结束
+=============================================================================================================================
 ```
 
 ## 3.二进制文件构建
